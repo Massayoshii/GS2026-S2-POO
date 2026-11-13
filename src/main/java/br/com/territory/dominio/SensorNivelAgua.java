@@ -1,5 +1,7 @@
 package br.com.territory.dominio;
 
+import br.com.territory.excecoes.FonteIndisponivelException;
+
 import java.util.Random;
 
 public class SensorNivelAgua implements Sensor{
@@ -9,7 +11,7 @@ public class SensorNivelAgua implements Sensor{
     @Override
     public double realizarLeitura() {
         if (!verificarFuncionamento()) {
-            throw new IllegalStateException("Sensor de nivel da agua indisponivel");
+            throw new FonteIndisponivelException("Sensor de nivel da agua indisponivel");
         }
 
         return random.nextDouble(0.0, 150.0);

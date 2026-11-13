@@ -1,5 +1,7 @@
 package br.com.territory.dominio;
 
+import br.com.territory.excecoes.DadosInvalidosException;
+
 public class DadosTerritorio {
 
     private double limiarChuva;
@@ -18,7 +20,7 @@ public class DadosTerritorio {
 
     public void setLimiarChuva(double limiarChuva) {
         if (limiarChuva <= 0) {
-            throw new IllegalArgumentException(
+            throw new DadosInvalidosException(
                     "O limiar de chuva deve ser maior que zero"
             );
         }
@@ -32,7 +34,7 @@ public class DadosTerritorio {
 
     public void setLimiarNivelAgua(double limiarNivelAgua) {
         if (limiarNivelAgua <= 0) {
-            throw new IllegalArgumentException(
+            throw new DadosInvalidosException(
                     "O limiar do nivel da agua deve ser maior que zero"
             );
         }
@@ -46,7 +48,7 @@ public class DadosTerritorio {
 
     public void setLimiarUmidadeSolo(double limiarUmidadeSolo) {
         if (limiarUmidadeSolo <= 0 || limiarUmidadeSolo > 100) {
-            throw new IllegalArgumentException(
+            throw new DadosInvalidosException(
                     "O limiar de umidade deve estar entre 0 e 100"
             );
         }

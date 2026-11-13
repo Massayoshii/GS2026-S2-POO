@@ -1,5 +1,7 @@
 package br.com.territory.dominio;
 
+import br.com.territory.excecoes.FonteIndisponivelException;
+
 import java.util.Random;
 
 public class Pluviometro implements Sensor{
@@ -9,7 +11,7 @@ public class Pluviometro implements Sensor{
     @Override
     public double realizarLeitura() {
         if (!verificarFuncionamento()){
-            throw new IllegalStateException("Pluviometro indisponivel");
+            throw new FonteIndisponivelException("Pluviometro indisponivel");
         }
 
         return random.nextDouble(0.0,100.0);
